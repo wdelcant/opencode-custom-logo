@@ -25,6 +25,7 @@
   },
   "files": [
     "dist",
+    "custom-logo.tsx",
     "README.md"
   ],
   "publishConfig": {
