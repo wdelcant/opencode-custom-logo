@@ -5,12 +5,12 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wdelcantoc/opencode-custom-logo.git"
+    "url": "git+https://github.com/wdelcant/opencode-custom-logo.git"
   },
   "bugs": {
-    "url": "https://github.com/wdelcantoc/opencode-custom-logo/issues"
+    "url": "https://github.com/wdelcant/opencode-custom-logo/issues"
   },
-  "homepage": "https://github.com/wdelcantoc/opencode-custom-logo#readme",
+  "homepage": "https://github.com/wdelcant/opencode-custom-logo#readme",
   "engines": {
     "node": ">=22.13"
   },
