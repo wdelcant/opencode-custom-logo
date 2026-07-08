@@ -46,9 +46,9 @@ const DEFAULT_MIN_HEIGHT_EXTRA = 6;
 // ── Config reader ───────────────────────────────────────────────────────────
 
 function readConfig(): LogoConfig {
-  if (!existsSync(CONFIG_PATH)) return {};
-
   try {
+    if (!existsSync(CONFIG_PATH)) return {};
+
     const raw = readFileSync(CONFIG_PATH, "utf-8");
     const parsed: unknown = JSON.parse(raw);
 
@@ -77,9 +77,14 @@ function readConfig(): LogoConfig {
   }
 }
 
-// ── Resolved config (read once at module load) ──────────────────────────────
+// ── Resolved config (read once at module load, failsafe) ────────────────────
 
-const config = readConfig();
+let config: LogoConfig;
+try {
+  config = readConfig();
+} catch {
+  config = {};
+}
 
 const art: string[] = config.art ?? DEFAULT_ART;
 const compact: string = config.compact ?? DEFAULT_COMPACT;
