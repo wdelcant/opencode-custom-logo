@@ -14,13 +14,12 @@
   "engines": {
     "node": ">=22.13"
   },
-  "main": "./dist/tui.js",
-  "types": "./dist/tui.d.ts",
-  "oc-plugin": "tui",
+  "main": "./dist/config.js",
+  "types": "./dist/config.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/tui.d.ts",
-      "import": "./dist/tui.js"
+      "types": "./dist/config.d.ts",
+      "import": "./dist/config.js"
     },
     "./tui": {
       "types": "./dist/tui.d.ts",
