@@ -1,11 +1,11 @@
-// @ts-nocheck — JSX slot return types vary across @opentui versions
+// @ts-nocheck
 /** @jsxImportSource @opentui/solid */
 import type { TuiPlugin, TuiThemeCurrent } from "@opencode-ai/plugin/tui";
 import { useTerminalDimensions } from "@opentui/solid";
 import { createMemo } from "solid-js";
-import { existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
-import os from "node:os";
+import { existsSync, readFileSync } from "fs";
+import { join } from "path";
+import os from "os";
 
 // ── Config ──────────────────────────────────────────────────────────────────
 
@@ -17,44 +17,11 @@ const CONFIG_PATH = join(
 );
 
 interface LogoConfig {
-  /**
-   * ASCII art lines for big terminals (≥64 cols, enough height).
-   * Each string is one row.
-   * @default opencode default art (see DEFAULT_ART)
-   */
   art?: string[];
-
-  /**
-   * Fallback text shown when the terminal is too small for the full art.
-   * @default "✦ OpenCode ✦"
-   */
   compact?: string;
-
-  /**
-   * Text color.
-   * - `"accent"` (default) → uses the active theme's accent color
-   * - Any other string (e.g. `"magenta"`, `"cyan"`, `"#ff69b4"`) → literal color
-   */
   color?: string;
-
-  /**
-   * Slot priority — higher numbers win when multiple logo plugins are registered.
-   * Gentle AI's gentle-logo uses 100, so defaulting to 200 ensures this wins.
-   * @default 200
-   */
   order?: number;
-
-  /**
-   * Minimum terminal width (columns) required to show the full art.
-   * @default 64
-   */
   minWidth?: number;
-
-  /**
-   * Minimum terminal height (rows) required to show the full art.
-   * Computed as art.length + padding.
-   * @default 6
-   */
   minHeightExtra?: number;
 }
 
@@ -133,7 +100,6 @@ const Logo = (props: { theme: TuiThemeCurrent }) => {
       : [compact];
   });
 
-  // Resolve color: "accent" → theme.accent, anything else → literal string
   const fg = (): string | TuiThemeCurrent["accent"] =>
     (
       color === "accent" ? props.theme.accent : color
