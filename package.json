@@ -1,6 +1,6 @@
 {
   "name": "opencode-custom-logo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "OpenCode TUI plugin that lets users display their own ASCII art logo on the home screen",
   "type": "module",
   "repository": {
